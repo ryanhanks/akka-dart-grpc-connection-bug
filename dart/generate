@@ -1,0 +1,4 @@
+#!/bin/bash
+rm -rf lib/generated
+mkdir -p lib/generated
+protoc --dart_out=grpc:lib/generated  -I../akka-helloworld-backend-java/src/main/proto ../akka-helloworld-backend-java/src/main/proto/helloworld.proto

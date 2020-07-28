@@ -26,11 +26,10 @@ void main() {
       try {
         await _sayHello(client);
         fail("Call to sayHello should have failed.");
-      } on GrpcError catch(e, stacktrace) {
+      } on GrpcError catch(e) {
         expect(e.code, 2);
         print('Caught GrpcError exception:');
         print(e);
-        print(stacktrace);
       }
       final reply = await _sayHello(client);
       expect(reply.message, 'Hello, ');
